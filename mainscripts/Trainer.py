@@ -78,7 +78,8 @@ def trainerThread (input_queue, output_queue, training_data_src_dir, training_da
                             print ('You can use preview now.')
 
                 if not is_reached_goal and (time.time() - last_save_time) >= save_interval_min*60:
-                    last_save_time = time.time() 
+                    last_save_time = time.time()
+                    print (loss_string)
                     model_save()
                     #send_preview()
                     
@@ -193,7 +194,7 @@ def previewThread (input_queue, output_queue):
             final = np.concatenate ( [final, selected_preview_rgb], axis=0 )
             final = np.clip(final, 0, 1)
             
-            cv2.imshow ( 'Training preview', (final*255).astype(np.uint8) )
+            #cv2.imshow ( 'Training preview', (final*255).astype(np.uint8) )
             is_showing = True
         
         if is_showing:
