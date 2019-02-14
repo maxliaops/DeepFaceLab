@@ -68,8 +68,9 @@ def trainerThread (input_queue, output_queue, training_data_src_dir, training_da
             for i in itertools.count(0,1):
                 if not debug:
                     if not is_reached_goal:
-                        loss_string = model.train_one_epoch()     
-                        print (loss_string)
+                        loss_string = model.train_one_epoch()
+                        if i % 10 == 0:
+                            print (loss_string)
                         #print (loss_string, end='\r')
                         if model.get_target_epoch() != 0 and model.is_reached_epoch_goal():
                             print ('Reached target epoch.')
