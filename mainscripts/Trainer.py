@@ -80,12 +80,12 @@ def trainerThread (input_queue, output_queue, training_data_src_dir, training_da
                 if not is_reached_goal and (time.time() - last_save_time) >= save_interval_min*60:
                     last_save_time = time.time() 
                     model_save()
-                    send_preview()
+                    #send_preview()
                     
                 if i==0:
                     if is_reached_goal:
                         model.pass_one_epoch()    
-                    send_preview()
+                    #send_preview()
                     
                 if debug:
                     time.sleep(0.005)
@@ -98,7 +98,7 @@ def trainerThread (input_queue, output_queue, training_data_src_dir, training_da
                     elif op == 'preview':                    
                         if is_reached_goal:
                             model.pass_one_epoch()                    
-                        send_preview()
+                        #send_preview()
                     elif op == 'close':
                         model_save()
                         i = -1
@@ -225,4 +225,4 @@ def main (training_data_src_dir, training_data_dst_dir, model_path, model_name, 
     thread = threading.Thread(target=trainerThread, args=(output_queue, input_queue, training_data_src_dir, training_data_dst_dir, model_path, model_name), kwargs=in_options )
     thread.start()
 
-    previewThread (input_queue, output_queue)
+    #previewThread (input_queue, output_queue)
