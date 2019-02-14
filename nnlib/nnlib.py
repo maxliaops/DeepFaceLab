@@ -150,10 +150,10 @@ NLayerDiscriminator = nnlib.NLayerDiscriminator
         if device_config is None:
             device_config = nnlib.active_DeviceConfig
         
-        tf_ver = [int(x) for x in tf.VERSION.split('.')]
-        req_cap = 35
-        if tf_ver[0] > 1 or (tf_ver[0] == 1 and tf_ver[1] >= 11):
-            req_cap = 37
+        #tf_ver = [int(x) for x in tf.VERSION.split('.')]
+        #req_cap = 35
+        #if tf_ver[0] > 1 or (tf_ver[0] == 1 and tf_ver[1] >= 11):
+        req_cap = 37
             
         if not device_config.cpu_only and device_config.gpu_compute_caps[0] < req_cap:
             if suppressor is not None:  
