@@ -319,7 +319,7 @@ class ModelBase(object):
             self.supress_std_once = False
                   
         if self.write_preview_history:
-            if self.epoch % 10 == 0:            
+            if self.epoch % 100 == 0:
                 preview = self.get_static_preview()
                 preview_lh = ModelBase.get_loss_history_preview(self.loss_history, self.epoch, preview.shape[1], preview.shape[2])
                 img = (np.concatenate ( [preview_lh, preview], axis=0 ) * 255).astype(np.uint8)
