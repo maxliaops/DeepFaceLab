@@ -12,7 +12,7 @@ from utils import image_utils
 import cv2
 import models
 
-def trainerThread (input_queue, output_queue, training_data_src_dir, training_data_dst_dir, model_path, model_name, save_interval_min=10, debug=False, **in_options):
+def trainerThread (input_queue, output_queue, training_data_src_dir, training_data_dst_dir, model_path, model_name, save_interval_min=30, debug=False, **in_options):
 
     while True:
         try: 
